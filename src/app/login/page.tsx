@@ -32,17 +32,19 @@ export default function LoginPage() {
 	};
 
 	return (
-		<div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-neutral-50 to-neutral-100 px-4">
+		<div className="min-h-screen flex items-center justify-center bg-background px-4">
 			<div className="w-full max-w-md">
 				{/* StyleSense Branding */}
 				<div className="text-center mb-8">
-					<h1 className="text-3xl font-bold text-neutral-900 mb-2">
+					<h1 className="text-3xl font-bold text-foreground mb-2">
 						StyleSense
 					</h1>
-					<p className="text-neutral-600">Your Fashion Destination</p>
+					<p className="text-muted-foreground">
+						Your Fashion Destination
+					</p>
 				</div>
 
-				<Card className="border-neutral-200 shadow-lg">
+				<Card className="shadow-lg">
 					<CardHeader className="space-y-1">
 						<CardTitle className="text-2xl font-semibold text-center">
 							Welcome Back
@@ -84,7 +86,7 @@ export default function LoginPage() {
 							<div className="flex items-center justify-between text-sm">
 								<Link
 									href="/forgot-password"
-									className="text-neutral-600 hover:text-neutral-900 transition-colors"
+									className="text-muted-foreground hover:text-foreground transition-colors"
 								>
 									Forgot password?
 								</Link>
@@ -92,7 +94,7 @@ export default function LoginPage() {
 
 							<Button
 								type="submit"
-								className="w-full bg-neutral-900 hover:bg-neutral-800 text-white"
+								className="w-full"
 								disabled={isLoading}
 							>
 								{isLoading ? "Signing in..." : "Sign In"}
@@ -102,10 +104,10 @@ export default function LoginPage() {
 						<div className="mt-6">
 							<div className="relative">
 								<div className="absolute inset-0 flex items-center">
-									<span className="w-full border-t border-neutral-300" />
+									<span className="w-full border-t border-border" />
 								</div>
 								<div className="relative flex justify-center text-xs uppercase">
-									<span className="bg-white px-2 text-neutral-500">
+									<span className="bg-background px-2 text-muted-foreground">
 										Or continue with
 									</span>
 								</div>
@@ -150,12 +152,12 @@ export default function LoginPage() {
 						</div>
 
 						<div className="mt-6 text-center text-sm">
-							<span className="text-neutral-600">
+							<span className="text-muted-foreground">
 								Don't have an account?{" "}
 							</span>
 							<Link
 								href="/signup"
-								className="text-neutral-900 hover:underline font-medium"
+								className="text-foreground hover:underline font-medium"
 							>
 								Sign up
 							</Link>
@@ -163,7 +165,7 @@ export default function LoginPage() {
 					</CardContent>
 				</Card>
 
-				<div className="mt-8 text-center text-xs text-neutral-500">
+				<div className="mt-8 text-center text-xs text-muted-foreground">
 					<p>
 						By signing in, you agree to our{" "}
 						<Link href="/terms" className="hover:underline">

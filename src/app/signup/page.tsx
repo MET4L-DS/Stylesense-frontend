@@ -44,17 +44,19 @@ export default function SignUpPage() {
 	};
 
 	return (
-		<div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-neutral-50 to-neutral-100 px-4">
+		<div className="min-h-screen flex items-center justify-center bg-background px-4">
 			<div className="w-full max-w-md">
 				{/* StyleSense Branding */}
 				<div className="text-center mb-8">
-					<h1 className="text-3xl font-bold text-neutral-900 mb-2">
+					<h1 className="text-3xl font-bold text-foreground mb-2">
 						StyleSense
 					</h1>
-					<p className="text-neutral-600">Your Fashion Destination</p>
+					<p className="text-muted-foreground">
+						Your Fashion Destination
+					</p>
 				</div>
 
-				<Card className="border-neutral-200 shadow-lg">
+				<Card className="shadow-lg">
 					<CardHeader className="space-y-1">
 						<CardTitle className="text-2xl font-semibold text-center">
 							Create Account
@@ -137,7 +139,7 @@ export default function SignUpPage() {
 
 							<Button
 								type="submit"
-								className="w-full bg-neutral-900 hover:bg-neutral-800 text-white"
+								className="w-full"
 								disabled={isLoading}
 							>
 								{isLoading
@@ -147,12 +149,12 @@ export default function SignUpPage() {
 						</form>
 
 						<div className="mt-6 text-center text-sm">
-							<span className="text-neutral-600">
+							<span className="text-muted-foreground">
 								Already have an account?{" "}
 							</span>
 							<Link
 								href="/login"
-								className="text-neutral-900 hover:underline font-medium"
+								className="text-foreground hover:underline font-medium"
 							>
 								Sign in
 							</Link>
@@ -160,7 +162,7 @@ export default function SignUpPage() {
 					</CardContent>
 				</Card>
 
-				<div className="mt-8 text-center text-xs text-neutral-500">
+				<div className="mt-8 text-center text-xs text-muted-foreground">
 					<p>
 						By creating an account, you agree to our{" "}
 						<Link href="/terms" className="hover:underline">
