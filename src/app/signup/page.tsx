@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
 	Card,
 	CardContent,
@@ -22,6 +23,7 @@ export default function SignUpPage() {
 		confirmPassword: "",
 	});
 	const [isLoading, setIsLoading] = useState(false);
+	const router = useRouter();
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setFormData({
@@ -37,9 +39,11 @@ export default function SignUpPage() {
 		// TODO: Implement signup logic
 		console.log("Signup attempt:", formData);
 
-		// Simulate API call
+		// Simulate API call and redirect to wardrobe
 		setTimeout(() => {
 			setIsLoading(false);
+			// Redirect to wardrobe page after successful signup
+			router.push("/wardrobe");
 		}, 1000);
 	};
 

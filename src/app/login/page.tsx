@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
 	Card,
 	CardContent,
@@ -17,6 +18,7 @@ export default function LoginPage() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
+	const router = useRouter();
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -25,9 +27,11 @@ export default function LoginPage() {
 		// TODO: Implement login logic
 		console.log("Login attempt:", { email, password });
 
-		// Simulate API call
+		// Simulate API call and redirect to wardrobe
 		setTimeout(() => {
 			setIsLoading(false);
+			// Redirect to wardrobe page after successful login
+			router.push("/wardrobe");
 		}, 1000);
 	};
 
