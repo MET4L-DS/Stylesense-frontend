@@ -1,0 +1,58 @@
+import { WardrobeItem } from "./types";
+
+export const wardrobeItems: WardrobeItem[] = [
+	{
+		id: 1,
+		name: "Classic White Button-Down",
+		category: "Shirts",
+		color: "White",
+		brand: "StyleSense",
+		image: "/api/placeholder/200/300",
+		tags: ["Business", "Casual"],
+	},
+	{
+		id: 2,
+		name: "Dark Wash Skinny Jeans",
+		category: "Pants",
+		color: "Dark Blue",
+		brand: "Denim Co",
+		image: "/api/placeholder/200/300",
+		tags: ["Casual", "Weekend"],
+	},
+	{
+		id: 3,
+		name: "Black Blazer",
+		category: "Jackets",
+		color: "Black",
+		brand: "StyleSense",
+		image: "/api/placeholder/200/300",
+		tags: ["Business", "Formal"],
+	},
+	{
+		id: 4,
+		name: "Striped Long Sleeve Tee",
+		category: "Shirts",
+		color: "Navy/White",
+		brand: "Basic Wear",
+		image: "/api/placeholder/200/300",
+		tags: ["Casual"],
+	},
+	{
+		id: 5,
+		name: "Wool Coat",
+		category: "Jackets",
+		color: "Camel",
+		brand: "Winter Collection",
+		image: "/api/placeholder/200/300",
+		tags: ["Winter", "Formal"],
+	},
+	{
+		id: 6,
+		name: "High-Waisted Trousers",
+		category: "Pants",
+		color: "Black",
+		brand: "Professional",
+		image: "/api/placeholder/200/300",
+		tags: ["Business", "Formal"],
+	},
+];
