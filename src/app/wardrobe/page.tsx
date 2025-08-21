@@ -405,133 +405,204 @@ export default function WardrobePage() {
 										</div>
 									</div>
 								</CardHeader>
-								<CardContent>
-									<div className="flex items-center gap-6">
-										<div className="w-32 h-40 bg-gradient-to-b from-background to-muted/30 rounded-lg flex flex-col items-center justify-center border border-border relative overflow-hidden">
-											{/* Clothing Items Collection - Hero Version */}
-											<div className="absolute inset-3 grid grid-cols-2 gap-2">
-												{/* Top Wear */}
-												<div className="bg-primary/10 rounded-md flex items-center justify-center border border-primary/20">
-													<div className="text-center">
-														<svg
-															className="w-5 h-5 mx-auto mb-1 text-primary/60"
-															fill="none"
-															stroke="currentColor"
-															viewBox="0 0 24 24"
-														>
-															<path
-																strokeLinecap="round"
-																strokeLinejoin="round"
-																strokeWidth={2}
-																d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-															/>
-														</svg>
-														<span className="text-xs text-primary/80 font-medium">
+								<CardContent className="p-6">
+									<div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+										{/* Enhanced Outfit Template */}
+										<div className="relative mx-auto md:mx-0 p-2">
+											<div className="w-full max-w-xs h-80 bg-gradient-to-b from-background to-muted/30 rounded-xl border border-border shadow-sm relative">
+												{/* Clothing Items Collection - Enhanced Hero Version */}
+												<div className="absolute inset-6 grid grid-cols-2 gap-4">
+													{/* Top Wear */}
+													<div className="bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 p-3">
+														<div className="text-center">
+															<svg
+																className="w-10 h-10 mx-auto mb-2 text-primary/70"
+																fill="none"
+																stroke="currentColor"
+																viewBox="0 0 24 24"
+															>
+																<path
+																	strokeLinecap="round"
+																	strokeLinejoin="round"
+																	strokeWidth={
+																		2
+																	}
+																	d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+																/>
+															</svg>
+															<span className="text-sm text-primary font-semibold">
+																Tee
+															</span>
+														</div>
+													</div>
+
+													{/* Bottom Wear */}
+													<div className="bg-secondary/10 rounded-xl flex items-center justify-center border border-secondary/20 p-3">
+														<div className="text-center">
+															<svg
+																className="w-10 h-10 mx-auto mb-2 text-secondary/70"
+																fill="none"
+																stroke="currentColor"
+																viewBox="0 0 24 24"
+															>
+																<path
+																	strokeLinecap="round"
+																	strokeLinejoin="round"
+																	strokeWidth={
+																		2
+																	}
+																	d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+																/>
+															</svg>
+															<span className="text-sm text-secondary font-semibold">
+																Jeans
+															</span>
+														</div>
+													</div>
+
+													{/* Footwear */}
+													<div className="bg-accent/10 rounded-xl flex items-center justify-center border border-accent/20 p-3">
+														<div className="text-center">
+															<svg
+																className="w-10 h-10 mx-auto mb-2 text-accent/70"
+																fill="none"
+																stroke="currentColor"
+																viewBox="0 0 24 24"
+															>
+																<path
+																	strokeLinecap="round"
+																	strokeLinejoin="round"
+																	strokeWidth={
+																		2
+																	}
+																	d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.674-1.334c.343.604.398 1.33.398 2.13v.532c0 .108-.077.198-.202.21l-2.054.229a13.875 13.875 0 01-7.918 0l-2.054-.229c-.125-.012-.202-.102-.202-.21z"
+																/>
+															</svg>
+															<span className="text-sm text-accent font-semibold">
+																Shoes
+															</span>
+														</div>
+													</div>
+
+													{/* Optional Accessory */}
+													<div className="bg-muted/30 rounded-xl flex items-center justify-center border border-muted-foreground/10 opacity-60 p-3">
+														<div className="text-center">
+															<svg
+																className="w-8 h-8 mx-auto mb-2 text-muted-foreground/40"
+																fill="none"
+																stroke="currentColor"
+																viewBox="0 0 24 24"
+															>
+																<path
+																	strokeLinecap="round"
+																	strokeLinejoin="round"
+																	strokeWidth={
+																		2
+																	}
+																	d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+																/>
+															</svg>
+															<span className="text-xs text-muted-foreground/50 font-medium">
+																Optional
+															</span>
+														</div>
+													</div>
+												</div>
+
+												{/* Outfit Name Badge */}
+												<div className="absolute bottom-4 left-4 right-4">
+													<div className="bg-background/95 backdrop-blur-sm rounded-lg px-4 py-3 border border-border/60 shadow-sm">
+														<p className="text-base font-semibold text-center">
+															Cozy WFH
+														</p>
+													</div>
+												</div>
+											</div>
+
+											{/* Confidence Badge - Positioned outside container */}
+											<div className="absolute -top-1 -right-1">
+												<Badge className="text-xs px-3 py-1 font-semibold shadow-sm">
+													85% Match
+												</Badge>
+											</div>
+										</div>
+
+										{/* Outfit Details */}
+										<div className="space-y-4">
+											<div>
+												<h3 className="text-xl font-bold mb-2">
+													Cozy WFH Outfit
+												</h3>
+												<p className="text-muted-foreground">
+													Perfect for video calls and
+													home productivity.
+													Comfortable yet presentable
+													for your work-from-home day.
+												</p>
+											</div>
+
+											<div className="space-y-2">
+												<h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+													Today's Items
+												</h4>
+												<div className="space-y-2">
+													<div className="flex items-center gap-3">
+														<div className="w-3 h-3 rounded-full bg-primary/20 border border-primary/40"></div>
+														<span className="text-sm">
+															Striped Long Sleeve
 															Tee
 														</span>
 													</div>
-												</div>
-
-												{/* Bottom Wear */}
-												<div className="bg-secondary/10 rounded-md flex items-center justify-center border border-secondary/20">
-													<div className="text-center">
-														<svg
-															className="w-5 h-5 mx-auto mb-1 text-secondary/60"
-															fill="none"
-															stroke="currentColor"
-															viewBox="0 0 24 24"
-														>
-															<path
-																strokeLinecap="round"
-																strokeLinejoin="round"
-																strokeWidth={2}
-																d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-															/>
-														</svg>
-														<span className="text-xs text-secondary/80 font-medium">
+													<div className="flex items-center gap-3">
+														<div className="w-3 h-3 rounded-full bg-secondary/20 border border-secondary/40"></div>
+														<span className="text-sm">
+															Dark Wash Skinny
 															Jeans
 														</span>
 													</div>
-												</div>
-
-												{/* Footwear */}
-												<div className="bg-accent/10 rounded-md flex items-center justify-center border border-accent/20">
-													<div className="text-center">
-														<svg
-															className="w-5 h-5 mx-auto mb-1 text-accent/60"
-															fill="none"
-															stroke="currentColor"
-															viewBox="0 0 24 24"
-														>
-															<path
-																strokeLinecap="round"
-																strokeLinejoin="round"
-																strokeWidth={2}
-																d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-															/>
-														</svg>
-														<span className="text-xs text-accent/80 font-medium">
-															Shoes
-														</span>
-													</div>
-												</div>
-
-												{/* Optional Accessory */}
-												<div className="bg-muted/30 rounded-md flex items-center justify-center border border-muted-foreground/10 opacity-50">
-													<div className="text-center">
-														<svg
-															className="w-4 h-4 mx-auto mb-1 text-muted-foreground/40"
-															fill="none"
-															stroke="currentColor"
-															viewBox="0 0 24 24"
-														>
-															<path
-																strokeLinecap="round"
-																strokeLinejoin="round"
-																strokeWidth={2}
-																d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-															/>
-														</svg>
-														<span className="text-xs text-muted-foreground/40 font-medium">
-															-
+													<div className="flex items-center gap-3">
+														<div className="w-3 h-3 rounded-full bg-accent/20 border border-accent/40"></div>
+														<span className="text-sm">
+															Comfortable Sneakers
 														</span>
 													</div>
 												</div>
 											</div>
 
-											{/* Outfit Name */}
-											<div className="absolute bottom-2 left-2 right-2">
-												<div className="bg-background/95 backdrop-blur-sm rounded px-2 py-1 border border-border/50">
-													<p className="text-xs font-medium text-center">
-														Cozy WFH
-													</p>
-												</div>
-											</div>
-										</div>
-										<div className="flex-1">
-											<h3 className="font-semibold mb-2">
-												Cozy WFH
-											</h3>
-											<p className="text-sm text-muted-foreground mb-3">
-												Perfect for video calls and home
-												productivity
-											</p>
-											<div className="space-y-1 mb-4">
-												<p className="text-sm">
-													• Striped Long Sleeve Tee
-												</p>
-												<p className="text-sm">
-													• Dark Wash Skinny Jeans
-												</p>
-											</div>
-											<div className="flex gap-2">
-												<Button size="sm">
+											<div className="flex gap-3 pt-2">
+												<Button className="flex-1">
+													<svg
+														className="w-4 h-4 mr-2"
+														fill="none"
+														stroke="currentColor"
+														viewBox="0 0 24 24"
+													>
+														<path
+															strokeLinecap="round"
+															strokeLinejoin="round"
+															strokeWidth={2}
+															d="M5 13l4 4L19 7"
+														/>
+													</svg>
 													Wear This Today
 												</Button>
 												<Button
-													size="sm"
 													variant="outline"
+													className="flex-1"
 												>
+													<svg
+														className="w-4 h-4 mr-2"
+														fill="none"
+														stroke="currentColor"
+														viewBox="0 0 24 24"
+													>
+														<path
+															strokeLinecap="round"
+															strokeLinejoin="round"
+															strokeWidth={2}
+															d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+														/>
+													</svg>
 													See Alternatives
 												</Button>
 											</div>
