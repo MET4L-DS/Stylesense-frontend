@@ -263,6 +263,7 @@ const wardrobeItems = {
 export default function WardrobePage() {
 	const [activeTab, setActiveTab] = useState("all");
 	const [selectedCategory, setSelectedCategory] = useState("All");
+	const [selectedDay, setSelectedDay] = useState("Wednesday"); // Default to today
 
 	const categories = ["All", "Shirts", "Pants", "Jackets", "Accessories"];
 
@@ -272,6 +273,13 @@ export default function WardrobePage() {
 			: wardrobeItems.all.filter(
 					(item) => item.category === selectedCategory
 			  );
+
+	// Get selected day's outfit data
+	const selectedDayOutfit =
+		wardrobeItems.weeklyPlan.find(
+			(dayPlan) => dayPlan.day === selectedDay
+		) ||
+		wardrobeItems.weeklyPlan.find((dayPlan) => dayPlan.day === "Wednesday"); // Fallback to Wednesday
 
 	return (
 		<div className="min-h-screen bg-background">
@@ -365,13 +373,64 @@ export default function WardrobePage() {
 								Manage your wardrobe and create amazing outfits.
 							</p>
 
+							{/* Day Switcher */}
+							<div className="mb-6">
+								<div className="flex items-center gap-2 mb-3">
+									<svg
+										className="w-4 h-4 text-muted-foreground"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+										/>
+									</svg>
+									<span className="text-sm font-medium text-muted-foreground">
+										View outfit for:
+									</span>
+								</div>
+								<div className="flex flex-wrap gap-2">
+									{wardrobeItems.weeklyPlan.map((dayPlan) => (
+										<Button
+											key={dayPlan.day}
+											variant={
+												selectedDay === dayPlan.day
+													? "default"
+													: "outline"
+											}
+											size="sm"
+											onClick={() =>
+												setSelectedDay(dayPlan.day)
+											}
+											className="text-xs"
+										>
+											<div className="flex flex-col items-center">
+												<span className="font-medium">
+													{dayPlan.day.slice(0, 3)}
+												</span>
+												<span className="text-xs opacity-70">
+													{dayPlan.date.split("-")[2]}
+												</span>
+											</div>
+										</Button>
+									))}
+								</div>
+							</div>
+
 							{/* Today's Recommendation */}
 							<Card className="bg-primary/5 border-primary/20">
 								<CardHeader>
 									<div className="flex items-center justify-between">
 										<div>
 											<CardTitle className="text-lg">
-												Today's Perfect Look
+												{selectedDay === "Wednesday"
+													? "Today's"
+													: `${selectedDay}'s`}{" "}
+												Perfect Look
 											</CardTitle>
 											<CardDescription className="flex items-center gap-2">
 												<svg
@@ -387,8 +446,15 @@ export default function WardrobePage() {
 														d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.4 4.4 0 003 15z"
 													/>
 												</svg>
-												Wednesday, August 21 • Rainy,
-												15°C
+												{selectedDayOutfit?.day},{" "}
+												{new Date(
+													selectedDayOutfit?.date ||
+														"2025-08-21"
+												).toLocaleDateString("en-US", {
+													month: "long",
+													day: "numeric",
+												})}{" "}
+												• {selectedDayOutfit?.weather}
 											</CardDescription>
 										</div>
 										<div className="flex items-center gap-1">
@@ -400,7 +466,12 @@ export default function WardrobePage() {
 												<path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
 											</svg>
 											<span className="text-lg font-bold">
-												85%
+												{
+													selectedDayOutfit
+														?.recommendedOutfit
+														.confidence
+												}
+												%
 											</span>
 										</div>
 									</div>
@@ -513,7 +584,11 @@ export default function WardrobePage() {
 												<div className="absolute bottom-4 left-4 right-4">
 													<div className="bg-background/95 backdrop-blur-sm rounded-lg px-4 py-3 border border-border/60 shadow-sm">
 														<p className="text-base font-semibold text-center">
-															Cozy WFH
+															{
+																selectedDayOutfit
+																	?.recommendedOutfit
+																	.name
+															}
 														</p>
 													</div>
 												</div>
@@ -522,7 +597,12 @@ export default function WardrobePage() {
 											{/* Confidence Badge - Positioned outside container */}
 											<div className="absolute -top-1 -right-1">
 												<Badge className="text-xs px-3 py-1 font-semibold shadow-sm">
-													85% Match
+													{
+														selectedDayOutfit
+															?.recommendedOutfit
+															.confidence
+													}
+													% Match
 												</Badge>
 											</div>
 										</div>
@@ -531,43 +611,115 @@ export default function WardrobePage() {
 										<div className="space-y-4">
 											<div>
 												<h3 className="text-xl font-bold mb-2">
-													Cozy WFH Outfit
+													{
+														selectedDayOutfit
+															?.recommendedOutfit
+															.name
+													}
 												</h3>
 												<p className="text-muted-foreground">
-													Perfect for video calls and
-													home productivity.
-													Comfortable yet presentable
-													for your work-from-home day.
+													{
+														selectedDayOutfit
+															?.recommendedOutfit
+															.reason
+													}
 												</p>
 											</div>
 
 											<div className="space-y-2">
 												<h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
-													Today's Items
+													{selectedDay === "Wednesday"
+														? "Today's"
+														: `${selectedDay}'s`}{" "}
+													Items
 												</h4>
 												<div className="space-y-2">
-													<div className="flex items-center gap-3">
-														<div className="w-3 h-3 rounded-full bg-primary/20 border border-primary/40"></div>
-														<span className="text-sm">
-															Striped Long Sleeve
-															Tee
-														</span>
-													</div>
-													<div className="flex items-center gap-3">
-														<div className="w-3 h-3 rounded-full bg-secondary/20 border border-secondary/40"></div>
-														<span className="text-sm">
-															Dark Wash Skinny
-															Jeans
-														</span>
-													</div>
-													<div className="flex items-center gap-3">
-														<div className="w-3 h-3 rounded-full bg-accent/20 border border-accent/40"></div>
-														<span className="text-sm">
-															Comfortable Sneakers
-														</span>
-													</div>
+													{selectedDayOutfit?.recommendedOutfit.items.map(
+														(item, index) => (
+															<div
+																key={index}
+																className="flex items-center gap-3"
+															>
+																<div
+																	className={`w-3 h-3 rounded-full border ${
+																		index ===
+																		0
+																			? "bg-primary/20 border-primary/40"
+																			: index ===
+																			  1
+																			? "bg-secondary/20 border-secondary/40"
+																			: "bg-accent/20 border-accent/40"
+																	}`}
+																></div>
+																<span className="text-sm">
+																	{item}
+																</span>
+															</div>
+														)
+													)}
 												</div>
 											</div>
+
+											{/* Schedule for selected day */}
+											{selectedDayOutfit?.schedule &&
+												selectedDayOutfit.schedule
+													.length > 0 && (
+													<div className="space-y-2">
+														<h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+															{selectedDay ===
+															"Wednesday"
+																? "Today's"
+																: `${selectedDay}'s`}{" "}
+															Schedule
+														</h4>
+														<div className="space-y-1">
+															{selectedDayOutfit.schedule
+																.slice(0, 2)
+																.map(
+																	(
+																		event,
+																		index
+																	) => (
+																		<div
+																			key={
+																				index
+																			}
+																			className="flex items-center gap-2"
+																		>
+																			<svg
+																				className="w-2 h-2 text-muted-foreground"
+																				fill="currentColor"
+																				viewBox="0 0 8 8"
+																			>
+																				<circle
+																					cx="4"
+																					cy="4"
+																					r="3"
+																				/>
+																			</svg>
+																			<span className="text-sm text-muted-foreground">
+																				{
+																					event
+																				}
+																			</span>
+																		</div>
+																	)
+																)}
+															{selectedDayOutfit
+																.schedule
+																.length > 2 && (
+																<p className="text-xs text-muted-foreground ml-4">
+																	+
+																	{selectedDayOutfit
+																		.schedule
+																		.length -
+																		2}{" "}
+																	more events
+																</p>
+															)}
+														</div>
+													</div>
+												)}
 
 											<div className="flex gap-3 pt-2">
 												<Button className="flex-1">
@@ -584,27 +736,41 @@ export default function WardrobePage() {
 															d="M5 13l4 4L19 7"
 														/>
 													</svg>
-													Wear This Today
+													{selectedDay === "Wednesday"
+														? "Wear This Today"
+														: `Plan for ${selectedDay}`}
 												</Button>
-												<Button
-													variant="outline"
-													className="flex-1"
-												>
-													<svg
-														className="w-4 h-4 mr-2"
-														fill="none"
-														stroke="currentColor"
-														viewBox="0 0 24 24"
-													>
-														<path
-															strokeLinecap="round"
-															strokeLinejoin="round"
-															strokeWidth={2}
-															d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-														/>
-													</svg>
-													See Alternatives
-												</Button>
+												{selectedDayOutfit?.alternatives &&
+													selectedDayOutfit
+														.alternatives.length >
+														0 && (
+														<Button
+															variant="outline"
+															className="flex-1"
+														>
+															<svg
+																className="w-4 h-4 mr-2"
+																fill="none"
+																stroke="currentColor"
+																viewBox="0 0 24 24"
+															>
+																<path
+																	strokeLinecap="round"
+																	strokeLinejoin="round"
+																	strokeWidth={
+																		2
+																	}
+																	d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+																/>
+															</svg>
+															{
+																selectedDayOutfit
+																	.alternatives
+																	.length
+															}{" "}
+															Alternatives
+														</Button>
+													)}
 											</div>
 										</div>
 									</div>
