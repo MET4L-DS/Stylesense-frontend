@@ -1,9 +1,9 @@
 // Categories for filtering wardrobe items
 export const WARDROBE_CATEGORIES = [
-	"All",
 	"Shirts",
 	"Pants",
 	"Jackets",
+	"Shoes",
 	"Accessories",
 ] as const;
 

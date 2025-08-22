@@ -6,6 +6,9 @@ export interface WardrobeItem {
 	brand: string;
 	image: string;
 	tags: string[];
+	timesWorn?: number;
+	lastWorn?: string;
+	purchaseDate?: string;
 }
 
 export interface Outfit {

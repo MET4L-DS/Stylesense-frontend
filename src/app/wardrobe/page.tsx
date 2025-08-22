@@ -26,7 +26,7 @@ import {
 	TodaysRecommendationCard,
 	WardrobeItemCard,
 	OutfitCard,
-	QuickStatsCard,
+	AnalyticsCard,
 	WeeklyPlanCard,
 } from "@/components/wardrobe";
 
@@ -201,7 +201,7 @@ export default function WardrobePage() {
 
 						{/* Compact Analytics */}
 						<div className="space-y-4">
-							<QuickStatsCard wardrobeItems={wardrobeItems} />
+							<AnalyticsCard wardrobeItems={wardrobeItems} />
 
 							{/* Weekly Progress */}
 							<Card>
