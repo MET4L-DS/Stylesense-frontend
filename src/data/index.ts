@@ -1,5 +1,6 @@
 export * from "./types";
 export * from "./constants";
+export * from "./analytics";
 export { wardrobeItems } from "./wardrobeItems";
 export { outfits } from "./outfits";
 export { weeklyPlan } from "./weeklyPlan";
