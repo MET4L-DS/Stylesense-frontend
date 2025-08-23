@@ -2,6 +2,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { WardrobeData, calculateAnalytics } from "@/data";
+import {
+	HiChartBar,
+	HiTag,
+	HiCheckCircle,
+	HiCalendar,
+	HiRefresh,
+	HiUser,
+	HiShieldCheck,
+	HiColorSwatch,
+	HiClock,
+	HiSparkles,
+	HiTrendingUp,
+	HiScale,
+} from "react-icons/hi";
 
 interface AnalyticsCardProps {
 	wardrobeItems: WardrobeData;
@@ -41,19 +55,7 @@ export function AnalyticsCard({ wardrobeItems }: AnalyticsCardProps) {
 		<Card className="w-full">
 			<CardHeader>
 				<CardTitle className="text-lg flex items-center gap-2">
-					<svg
-						className="w-5 h-5"
-						fill="none"
-						stroke="currentColor"
-						viewBox="0 0 24 24"
-					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							strokeWidth={2}
-							d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-						/>
-					</svg>
+					<HiChartBar className="w-5 h-5" />
 					Wardrobe Analytics
 				</CardTitle>
 			</CardHeader>
@@ -69,19 +71,7 @@ export function AnalyticsCard({ wardrobeItems }: AnalyticsCardProps) {
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
 							<StatItem
 								icon={
-									<svg
-										className="w-4 h-4 text-blue-600"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
-										/>
-									</svg>
+									<HiTag className="w-4 h-4 text-blue-600" />
 								}
 								label="Total Items"
 								value={totalItems}
@@ -89,19 +79,7 @@ export function AnalyticsCard({ wardrobeItems }: AnalyticsCardProps) {
 							/>
 							<StatItem
 								icon={
-									<svg
-										className="w-4 h-4 text-green-600"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-										/>
-									</svg>
+									<HiCheckCircle className="w-4 h-4 text-green-600" />
 								}
 								label="Weekly Worn"
 								value={timeBasedStats.weeklyWorn}
@@ -109,19 +87,7 @@ export function AnalyticsCard({ wardrobeItems }: AnalyticsCardProps) {
 							/>
 							<StatItem
 								icon={
-									<svg
-										className="w-4 h-4 text-purple-600"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-										/>
-									</svg>
+									<HiCalendar className="w-4 h-4 text-purple-600" />
 								}
 								label="Monthly Worn"
 								value={timeBasedStats.monthlyWorn}
@@ -129,19 +95,7 @@ export function AnalyticsCard({ wardrobeItems }: AnalyticsCardProps) {
 							/>
 							<StatItem
 								icon={
-									<svg
-										className="w-4 h-4 text-red-600"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-										/>
-									</svg>
+									<HiRefresh className="w-4 h-4 text-red-600" />
 								}
 								label="Repeat Rate"
 								value={`${usageStats.repeatPercentage}%`}
@@ -184,19 +138,7 @@ export function AnalyticsCard({ wardrobeItems }: AnalyticsCardProps) {
 						<div className="grid grid-cols-1 gap-3">
 							<StatItem
 								icon={
-									<svg
-										className="w-4 h-4 text-blue-600"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-										/>
-									</svg>
+									<HiUser className="w-4 h-4 text-blue-600" />
 								}
 								label="Shirts & Tops"
 								value={categoryStats.shirts}
@@ -204,19 +146,7 @@ export function AnalyticsCard({ wardrobeItems }: AnalyticsCardProps) {
 							/>
 							<StatItem
 								icon={
-									<svg
-										className="w-4 h-4 text-green-600"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-										/>
-									</svg>
+									<HiShieldCheck className="w-4 h-4 text-green-600" />
 								}
 								label="Bottom Wear"
 								value={categoryStats.pants}
@@ -224,19 +154,7 @@ export function AnalyticsCard({ wardrobeItems }: AnalyticsCardProps) {
 							/>
 							<StatItem
 								icon={
-									<svg
-										className="w-4 h-4 text-purple-600"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.674-1.334c.343.604.398 1.33.398 2.13v.532c0 .108-.077.198-.202.21l-2.054.229a13.875 13.875 0 01-7.918 0l-2.054-.229c-.125-.012-.202-.102-.202-.21z"
-										/>
-									</svg>
+									<HiColorSwatch className="w-4 h-4 text-purple-600" />
 								}
 								label="Shoes"
 								value={categoryStats.shoes}
@@ -244,19 +162,7 @@ export function AnalyticsCard({ wardrobeItems }: AnalyticsCardProps) {
 							/>
 							<StatItem
 								icon={
-									<svg
-										className="w-4 h-4 text-yellow-600"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-										/>
-									</svg>
+									<HiClock className="w-4 h-4 text-yellow-600" />
 								}
 								label="Jackets & Outerwear"
 								value={categoryStats.jackets}
@@ -264,19 +170,7 @@ export function AnalyticsCard({ wardrobeItems }: AnalyticsCardProps) {
 							/>
 							<StatItem
 								icon={
-									<svg
-										className="w-4 h-4 text-pink-600"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-										/>
-									</svg>
+									<HiSparkles className="w-4 h-4 text-pink-600" />
 								}
 								label="Accessories"
 								value={categoryStats.accessories}
@@ -318,19 +212,7 @@ export function AnalyticsCard({ wardrobeItems }: AnalyticsCardProps) {
 
 							<StatItem
 								icon={
-									<svg
-										className="w-4 h-4 text-orange-600"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-										/>
-									</svg>
+									<HiTrendingUp className="w-4 h-4 text-orange-600" />
 								}
 								label="Total Wears"
 								value={wearStats.totalWorn}
@@ -339,19 +221,7 @@ export function AnalyticsCard({ wardrobeItems }: AnalyticsCardProps) {
 
 							<StatItem
 								icon={
-									<svg
-										className="w-4 h-4 text-teal-600"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-										/>
-									</svg>
+									<HiScale className="w-4 h-4 text-teal-600" />
 								}
 								label="Average Wear"
 								value={wearStats.averageWear.toFixed(1)}
